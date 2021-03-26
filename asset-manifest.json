@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/softphone/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/softphone/static/js/main.b0f6d6da.chunk.js",
+    "main.js.map": "/softphone/static/js/main.b0f6d6da.chunk.js.map",
+    "runtime-main.js": "/softphone/static/js/runtime-main.ccdd1439.js",
+    "runtime-main.js.map": "/softphone/static/js/runtime-main.ccdd1439.js.map",
+    "static/css/2.f913cf98.chunk.css": "/softphone/static/css/2.f913cf98.chunk.css",
+    "static/js/2.9d3c5456.chunk.js": "/softphone/static/js/2.9d3c5456.chunk.js",
+    "static/js/2.9d3c5456.chunk.js.map": "/softphone/static/js/2.9d3c5456.chunk.js.map",
+    "static/js/3.a7c8676e.chunk.js": "/softphone/static/js/3.a7c8676e.chunk.js",
+    "static/js/3.a7c8676e.chunk.js.map": "/softphone/static/js/3.a7c8676e.chunk.js.map",
+    "index.html": "/softphone/index.html",
+    "static/css/2.f913cf98.chunk.css.map": "/softphone/static/css/2.f913cf98.chunk.css.map",
+    "static/css/main.8c8b27cf.chunk.css.map": "/softphone/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.9d3c5456.chunk.js.LICENSE.txt": "/softphone/static/js/2.9d3c5456.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/softphone/static/media/outline-icons.ddae9b1b.woff",
+    "static/media/logo.6ce24c58.svg": "/softphone/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ccdd1439.js",
+    "static/css/2.f913cf98.chunk.css",
+    "static/js/2.9d3c5456.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.b0f6d6da.chunk.js"
+  ]
+}
