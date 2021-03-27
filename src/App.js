@@ -394,23 +394,10 @@ const App = () => {
 
 	return (
 		<div className="ui grid">
-			<div className="eight wide column">
+			<div className="ten wide column">
 				<div className="ui divided selection list">
 					<a className="item">
 						<div className="ui large green horizontal label">Info1 </div>
-						{valinputnumber}
-						{gstate.length !== 0 && (
-							<div className="ui mini grey circular label">{gstate}</div>
-						)}
-					</a>
-					<a className="item">
-						<div className="ui large green horizontal label">Info2 </div>
-						{valparticipantnumber}
-						{gpresence.length !== 0 && (
-							<div className="ui mini grey circular label">{gpresence}</div>
-						)}
-					</a>
-					<a className="item">
 						<Input
 							type="text"
 							id="dialstring"
@@ -419,96 +406,139 @@ const App = () => {
 							val={valinputnumber}
 							onChange={handleChange}
 						/>
-
-						<Button inverted color="green" id="dial" onClick={() => MakeCall()}>
-							Dial
-						</Button>
-
+						{gisconnected === false && (
+							<Button
+								inverted
+								color="green"
+								id="dial"
+								onClick={() => MakeCall()}
+							>
+								Dial
+							</Button>
+						)}
 						{gisconnected === true && (
-							<div>
-								{muted === false && (
-									<Button inverted color="green" onClick={() => setmuted(true)}>
-										Mute
-									</Button>
-								)}
-								{muted === true && (
-									<Button inverted color="blue" onClick={() => setmuted(false)}>
-										unMute
-									</Button>
-								)}
-								{held === false && (
-									<Button inverted color="green" onClick={() => setheld(true)}>
-										Hold
-									</Button>
-								)}
-								{held === true && (
-									<Button inverted color="blue" onClick={() => setheld(false)}>
-										unHold
-									</Button>
-								)}
+							<Button
+								inverted
+								color="red"
+								onClick={() => setgisconnected(false)}
+							>
+								Disconnect
+							</Button>
+						)}
+						{gisconnected === true && muted === false && (
+							<Button inverted color="green" onClick={() => setmuted(true)}>
+								Mute
+							</Button>
+						)}
+						{gisconnected === true && muted === true && (
+							<Button inverted color="blue" onClick={() => setmuted(false)}>
+								unMute
+							</Button>
+						)}
+						{gisconnected === true && held === false && (
+							<Button inverted color="green" onClick={() => setheld(true)}>
+								Hold
+							</Button>
+						)}
+						{gisconnected === true && held === true && (
+							<Button inverted color="blue" onClick={() => setheld(false)}>
+								unHold
+							</Button>
+						)}
+						{valinputnumber}
+						{gstate === 'disconnected' && (
+							<div className="ui mini black circular label">{gstate}</div>
+						)}
+						{gstate === 'terminated' && (
+							<div className="ui mini grey circular label">{gstate}</div>
+						)}
+						{gstate === 'dialing' && (
+							<div className="ui mini red circular label">{gstate}</div>
+						)}
+						{gstate === 'connected' && (
+							<div className="ui mini blue circular label">{gstate}</div>
+						)}
+						{gpresence === 'AVAILABLE' && (
+							<div className="ui mini green circular label">{gpresence}</div>
+						)}
+						{gpresence === 'BUSY' && (
+							<div className="ui mini red circular label">{gpresence}</div>
+						)}
+						{gpresence === 'AWAY' && (
+							<div className="ui mini pink circular label">{gpresence}</div>
+						)}
+						{gpresence === 'BREAK' && (
+							<div className="ui mini orange circular label">{gpresence}</div>
+						)}
+						{gpresence === 'MEAL' && (
+							<div className="ui mini orange circular label">{gpresence}</div>
+						)}
+						{gpresence === 'MEETING' && (
+							<div className="ui mini red circular label">{gpresence}</div>
+						)}
+						{gpresence === 'TRAINING' && (
+							<div className="ui mini orange circular label">{gpresence}</div>
+						)}
+					</a>
+					<a className="item">
+						<div className="ui large green horizontal label">Info2 </div>
+						{gisconnected === true && (
+							<Input
+								type="text"
+								id="newparticipant"
+								placeholder="3172222222"
+								ref={refparticipantnumber}
+								val={valparticipantnumber}
+								onChange={handleChange2}
+							/>
+						)}
+						{gisconnected === true && (
+							<Button
+								inverted
+								color="purple"
+								id="Consult"
+								onClick={() => setisConsult('on')}
+							>
+								Consult
+							</Button>
+						)}
+						{valparticipantnumber}
 
-								<label htmlFor="newparticipant">転送</label>
-								<Input
-									type="text"
-									id="newparticipant"
-									placeholder="3172222222"
-									ref={refparticipantnumber}
-									val={valparticipantnumber}
-									onChange={handleChange2}
-								/>
-								<Button
-									inverted
-									color="purple"
-									id="Consult"
-									onClick={() => setisConsult('on')}
-								>
-									Consult
-								</Button>
-								<Button
-									inverted
-									color="red"
-									onClick={() => setgisconnected(false)}
-								>
-									Disconnect
-								</Button>
-								{isConsult === 'on' && (
-									<div>
-										<Button
-											inverted
-											color="purple"
-											onClick="consultSpeakTo('BOTH')"
-										>
-											Speak to Both
-										</Button>
-										<Button
-											inverted
-											color="purple"
-											onClick="consultSpeakTo('DESTINATION')"
-										>
-											Speak to Destination
-										</Button>
-										<Button
-											inverted
-											color="purple"
-											onClick="consultSpeakTo('OBJECT')"
-										>
-											Speak to First Party
-										</Button>
-										<Button
-											inverted
-											color="purple"
-											onClick={() => setisConsult('off')}
-										>
-											Consult off
-										</Button>
-									</div>
-								)}
-							</div>
+						{gisconnected === true && isConsult === 'on' && (
+							<Button inverted color="purple" onClick="consultSpeakTo('BOTH')">
+								Both
+							</Button>
+						)}
+						{gisconnected === true && isConsult === 'on' && (
+							<Button
+								inverted
+								color="purple"
+								onClick="consultSpeakTo('DESTINATION')"
+							>
+								Destination
+							</Button>
+						)}
+						{gisconnected === true && isConsult === 'on' && (
+							<Button
+								inverted
+								color="purple"
+								onClick="consultSpeakTo('OBJECT')"
+							>
+								First Party
+							</Button>
+						)}
+						{gisconnected === true && isConsult === 'on' && (
+							<Button
+								inverted
+								color="purple"
+								onClick={() => setisConsult('off')}
+							>
+								Consult off
+							</Button>
 						)}
 					</a>
 				</div>
 			</div>
-			<div className="two wide column"></div>
 		</div>
 	);
 };
