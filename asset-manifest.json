@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/softphone/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/softphone/static/js/main.0ce09cd6.chunk.js",
-    "main.js.map": "/softphone/static/js/main.0ce09cd6.chunk.js.map",
+    "main.js": "/softphone/static/js/main.ceccaf04.chunk.js",
+    "main.js.map": "/softphone/static/js/main.ceccaf04.chunk.js.map",
     "runtime-main.js": "/softphone/static/js/runtime-main.c6c57267.js",
     "runtime-main.js.map": "/softphone/static/js/runtime-main.c6c57267.js.map",
     "static/css/2.f913cf98.chunk.css": "/softphone/static/css/2.f913cf98.chunk.css",
@@ -22,6 +22,6 @@
     "static/css/2.f913cf98.chunk.css",
     "static/js/2.488ff024.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.0ce09cd6.chunk.js"
+    "static/js/main.ceccaf04.chunk.js"
   ]
 }
