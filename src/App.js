@@ -1,4 +1,7 @@
 import React, { Component, useCallback } from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import queryString from 'query-string';
 import logo from './logo.svg';
 import './App.css';
 
@@ -13,6 +16,8 @@ import 'semantic-ui-css/semantic.min.css';
 import platformClient from 'purecloud-platform-client-v2';
 
 const App = () => {
+	const qs = queryString.parse(window.location.search);
+
 	const [gcallId, setgcallId] = useState([]);
 	const [gparticipantId, setgparticipantId] = useState([]);
 	const [gdnis, setgdnis] = useState([]);
@@ -378,7 +383,14 @@ const App = () => {
 	};
 
 	//-------------------------
-
+	//======================================
+	const SetCalltoNumber = () => {
+		document.getElementById('dialstring').value = document.getElementById(
+			'callto'
+		).value;
+		setvalinputnumber(document.getElementById('callto').value);
+	};
+	//-------------------------
 	//-------------------------
 
 	//-------------------------
@@ -407,6 +419,17 @@ const App = () => {
 								val={valinputnumber}
 								onChange={handleChange}
 							/>
+							{qs.callto && (
+								<Button
+									inverted
+									color="green"
+									id="callto"
+									value={qs.callto}
+									onClick={() => SetCalltoNumber()}
+								>
+									{qs.callto}
+								</Button>
+							)}
 							{gisconnected === false && (
 								<Button
 									inverted
